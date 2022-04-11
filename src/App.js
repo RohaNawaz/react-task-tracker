@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react'
-import { BrowserRouter as Router, Route, Routes } from 'react-router-dom'
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Header from './components/Header'
 import Footer from './components/Footer'
 import Tasks from './components/Tasks'
@@ -91,7 +91,11 @@ const App = () => {
     return (
       <Router>
     <div className="container">
-      <Header onAdd={() => setShowAddTask(!showAddTask)} showAdd={showAddTask}/>
+      <Header 
+      onAdd={() => setShowAddTask
+      (!showAddTask)} 
+      showAdd={showAddTask}
+      />
       {showAddTask && <AddTask onAdd={addTask}/>}
       {tasks.length > 0 ? (
         <Tasks tasks={tasks} onDelete=
@@ -100,11 +104,11 @@ const App = () => {
         'No Tasks To Show'
       )}
       <Routes>
-        <Route path='/about' component={About}></Route>
-      </Routes>  
+      <Route path="/about" element={ <About/> } />
+      </Routes>
       <Footer />
     </div>
-    </Router>
+    </Router>  
   );
 }
 
